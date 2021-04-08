@@ -1,0 +1,27 @@
+node ("master")
+{
+    def mavenhome = tool name: "maven3.6.3"
+    stage ("Get Srouce Code from GIT")
+    {
+        git credentialsId: '7253a174-e34e-4da3-a9c7-fac4ea84fdcb', url: 'https://github.com/rabbani-devops/maven-web-application.git'
+    }
+
+    stage ("Build Artifact in Maven")
+    {
+        sh "${mavenhome}/bin/mvn package"
+    }
+    
+    stage ("Save Artifact to Nexus Rep")
+    {
+        sh "${mavenhome}/bin/mvn deploy"
+    }
+    stage ("Deploying to Tomcat server")
+    {
+    sshagent(['49664303-be58-494d-ba1f-282cd5fb47a3']) {
+        sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@ec2-user@ip-172-31-4-103: /opt/apache-tomcat-9.0.45/webapps"
+    }
+    }
+    
+    
+    
+}
