@@ -1,0 +1,31 @@
+node ("master")
+{
+	def maven = tool name: "maven3.6.3"
+    
+    stage("GetTheCodeFromGIT")
+    {
+        git credentialsId: '7253a174-e34e-4da3-a9c7-fac4ea84fdcb', url: 'https://github.com/rabbani-devops/maven-web-application.git'
+    }
+
+	stage ("BuildArtifactInMaven")
+    {
+        sh "${maven}/bin/mvn package"
+    }
+    
+    stage ("ValidateCodeInSonarQube")
+    {
+        sh "${maven}/bin/mvn package sonar:sonar"
+    }
+    
+    stage ("UploadCodeIntoArtifactoryRepository,Nexus")
+    {
+        sh "${maven}/bin/mvn deploy"
+    }
+    
+    stage ("DeployCodeToTomcatServer")
+    {
+    sshagent(['abc14bdb-2ae5-4a5a-8f84-eb99960022a4']) {
+    sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/freestyle2/target/maven-web-application.war ec2-user@172.31.4.103:/opt/apache-tomcat-9.0.45/webapps/"
+    }
+    }
+}
