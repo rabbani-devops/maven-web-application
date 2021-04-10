@@ -28,4 +28,10 @@ node ("master")
     sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/freestyle2/target/maven-web-application.war ec2-user@172.31.4.103:/opt/apache-tomcat-9.0.45/webapps/"
     }
     }
+    stage ("SentMailtoUser")
+    {
+    emailext body: '''Regards,
+    Rabbani''', subject: 'Pipeline Script Build success', to: 'mobeenmd963@gmail.com'
+    }
+    
 }
