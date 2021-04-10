@@ -2,7 +2,7 @@ node ("master")
 {
 	def maven = tool name: "maven3.6.3"
     
-    stage("GetTheCodeFromGIT")
+    stage("Get the code from GIT")
     {
         git credentialsId: '7253a174-e34e-4da3-a9c7-fac4ea84fdcb', url: 'https://github.com/rabbani-devops/maven-web-application.git'
     }
