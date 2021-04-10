@@ -7,33 +7,33 @@ node ("master")
         git credentialsId: '7253a174-e34e-4da3-a9c7-fac4ea84fdcb', url: 'https://github.com/rabbani-devops/maven-web-application.git'
     }
 
-	stage ("BuildArtifactInMaven")
+	stage ("Build artifact in Maven")
     {
         sh "${maven}/bin/mvn package"
     }
     
-    stage ("ValidateCodeInSonarQube")
+    stage ("Validate code coverage in Sonar Qube")
     {
         sh "${maven}/bin/mvn package sonar:sonar"
     }
     
-    stage ("CheckCodeCoverage")
+    stage ("Check code coverage")
     {
     jacoco deltaBranchCoverage: '80', deltaClassCoverage: '80', deltaComplexityCoverage: '80', deltaInstructionCoverage: '80', deltaLineCoverage: '80', deltaMethodCoverage: '80', maximumBranchCoverage: '80', maximumClassCoverage: '80', maximumComplexityCoverage: '80', maximumInstructionCoverage: '80', maximumLineCoverage: '80', maximumMethodCoverage: '80', minimumBranchCoverage: '80', minimumClassCoverage: '80', minimumComplexityCoverage: '80', minimumInstructionCoverage: '80', minimumLineCoverage: '80', minimumMethodCoverage: '80'
     }
     
-    stage ("UploadCodeIntoArtifactoryRepository,Nexus")
+    stage ("Upload code into artifactory repository, Nexus")
     {
         sh "${maven}/bin/mvn deploy"
     }
     
-    stage ("DeployCodeToTomcatServer")
+    stage ("Deploy code to Tomcat Server")
     {
     sshagent(['abc14bdb-2ae5-4a5a-8f84-eb99960022a4']) {
     sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/freestyle2/target/maven-web-application.war ec2-user@172.31.4.103:/opt/apache-tomcat-9.0.45/webapps/"
     }
     }
-    stage ("SentMailtoUser")
+    stage ("Send email notification")
     {
     emailext body: '''Regards,
     Rabbani''', subject: 'Pipeline Script Build success', to: 'mobeenmd963@gmail.com'
