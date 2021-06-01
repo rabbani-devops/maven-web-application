@@ -12,21 +12,17 @@
 <h1>.</h1>
 <h1>hello</h1>
 <h1>Rabbani</h1>
-<h1 align="center"> Welcome to Mithun Software Solutions.</h1>
-<h1 align="center"> Mithun Software Solutions- Very Good Training center for DevOps with AWS in Maratha Halli Bangalore India and also for Job Assitance Job Support also...Teaching Real Time scenarios</h1>
+<h1 align="center"> This is Maven Web Apps application file.</h1>
+<h1 align="center"></h1>
 <hr>
 <div style="text-align: center;">
 	<span>
 		<img src="images/mithunlogo.jpg" alt="" width="100">
 	</span>
 	<span style="font-weight: bold;">
-		Mithun Technologies, 
-		Martha Halli, Above ICICI Bank, Beside Meghana Foods,
-		Bangalore,
-		+91-9980923226
-		devopstrainingblr@gmail.com
+		.
 		<br>
-		<a href="mailto:devopstrainingblr@gmail.com">Mail to Mithun Technologies</a>
+		<a href=".>Mail to Mithun Technologies</a>
 	</span>
 </div>
 <hr>
@@ -34,6 +30,6 @@
 <hr>
 <hr>
 <p align=center>Mithun Technologies - Consultant, Training, Development Center.</p>
-<p align=center><small>Copyrights 2019 by <a href="http://mithuntechnologies.com/">Mithun Technologies</a> </small></p>
+<p align=center><small>Copyrights 2019 by <a href=".">Mithun Technologies</a> </small></p>
 </body>
 </html>
