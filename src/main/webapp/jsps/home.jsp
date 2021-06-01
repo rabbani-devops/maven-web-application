@@ -9,16 +9,10 @@
 </head>
 </head>
 <body>
-<h1>.</h1>
-<h1>hello</h1>
-<h1>Rabbani</h1>
-<h1 align="center"> This is Maven Web Apps application file.</h1>
+<h1 align="center"> Welcome to Maven Web Application file.</h1>
 <h1 align="center"></h1>
 <hr>
 <div style="text-align: center;">
-	<span>
-		<img src="images/mithunlogo.jpg" alt="" width="100">
-	</span>
 	<span style="font-weight: bold;">
 		.
 		<br>
@@ -26,10 +20,10 @@
 	</span>
 </div>
 <hr>
-	<p> Service : <a href="services/employee/getEmployeeDetails">Get Employee Details </p>
+	<p> Service : <a href=" ">Get Employee Details </p>
 <hr>
 <hr>
 <p align=center>Mithun Technologies - Consultant, Training, Development Center.</p>
-<p align=center><small>Copyrights 2019 by <a href=".">Mithun Technologies</a> </small></p>
+<p align=center><small>. <a href=".">.</a> </small></p>
 </body>
 </html>
