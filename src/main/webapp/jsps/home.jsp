@@ -20,10 +20,10 @@
 	</span>
 </div>
 <hr>
-	<p> Service : <a href=" ">Get Employee Details </p>
+	<p> Service : <a href=" "> </p>
 <hr>
 <hr>
-<p align=center>Mithun Technologies - Consultant, Training, Development Center.</p>
+<p align=center>r.</p>
 <p align=center><small>. <a href=".">.</a> </small></p>
 </body>
 </html>
